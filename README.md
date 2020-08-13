@@ -1,0 +1,1 @@
+# typescript-aws-sample
