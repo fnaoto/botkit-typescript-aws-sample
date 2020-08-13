@@ -4,6 +4,7 @@
     "build": "npx tsc --outDir ./dist ./src/index.ts"
   },
   "dependencies": {
+    "aws-sdk": "^2.732.0",
     "botbuilder-adapter-web": "^1.0.8",
     "botkit": "^4.9.0",
     "typescript": "^3.9.7"
