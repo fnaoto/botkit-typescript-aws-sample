@@ -19,7 +19,7 @@ $ curl -X POST \
     http://localhost:3000/api/messages
 ```
 
-## Get codebuild project and codedeploy deployment group
+## Get codebuild project and codedeploy application
 
 ```
 $ export AWS_ACCESS_KEY_ID=<>
