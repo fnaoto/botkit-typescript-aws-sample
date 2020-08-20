@@ -4,8 +4,15 @@ const codedeploy = () => {
   return new AWS.CodeDeploy;
 };
 
-const CodeDeploylistApplications = () => {
+const CodeDeployListApplications = () => {
   return codedeploy().listApplications().promise();
 };
 
-export { CodeDeploylistApplications }
+const CodeDeployListDeployments = () => {
+  return codedeploy().listDeployments().promise();
+};
+
+export { 
+  CodeDeployListApplications,
+  CodeDeployListDeployments
+}

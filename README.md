@@ -45,7 +45,7 @@ $ curl -X POST \
 $ curl -X POST \
     -H "Content-Type: application/json" \
     -d '{
-          "type": "codedeploy",
+          "type": "codedeploy-list-app",
           "text": "test",     
           "channel": "websocket",
           "user": "user"
