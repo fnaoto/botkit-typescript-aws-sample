@@ -8,11 +8,17 @@ const CodeDeployListApplications = () => {
   return codedeploy().listApplications().promise();
 };
 
-const CodeDeployListDeployments = () => {
-  return codedeploy().listDeployments().promise();
+const CodeDeployListDeployments = async () => {
+  return await codedeploy().listDeployments().promise();
 };
 
-export { 
+const CodeDeployListDeployment = async () => {
+  const deploymentIds = await CodeDeployListDeployments()
+  return deploymentIds.deployments;
+}
+
+export {
   CodeDeployListApplications,
-  CodeDeployListDeployments
+  CodeDeployListDeployments,
+  CodeDeployListDeployment
 }
