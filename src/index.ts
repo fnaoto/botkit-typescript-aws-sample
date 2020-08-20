@@ -3,7 +3,7 @@ import { WebAdapter } from "botbuilder-adapter-web";
 import { CodeBuildListProjects } from "./aws/CodeBuild";
 import {
   CodeDeployListApplications,
-  CodeDeployListDeployments
+  CodeDeployListDeployment
 } from "./aws/CodeDeploy";
 
 const adapter = new WebAdapter;
@@ -21,7 +21,7 @@ controller.on("codebuild", async (bot, message) => {
 });
 
 controller.on("codedeploy-list-deploy", async (bot, message) => {
-  await bot.reply(message, (await CodeDeployListDeployments()).deployments);
+  await bot.reply(message, await CodeDeployListDeployment());
 });
 
 controller.on("codedeploy-list-app", async (bot, message) => {
