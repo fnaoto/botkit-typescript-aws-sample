@@ -12,13 +12,36 @@ const CodeDeployListDeployments = async () => {
   return await codedeploy().listDeployments().promise();
 };
 
+const CodeDeployListDeploymentsReady = async () => {
+  return await codedeploy().listDeployments({
+    includeOnlyStatuses: ["Ready"]
+  }).promise();
+};
+
+const CodeDeployGetDeployment = async (deploymentId) => {
+  return await codedeploy().getDeployment({
+    deploymentId: deploymentId
+  }).promise();
+};
+
 const CodeDeployListDeployment = async () => {
   const deploymentIds = await CodeDeployListDeployments()
   return deploymentIds.deployments;
 }
 
+const CodeDeployGetDeploymentReady = async () => {
+  const deploymentIds = await CodeDeployListDeploymentsReady()
+  if (deploymentIds.deployments.length > 0) {
+    for (const deploymentId of deploymentIds.deployments) {
+      return await CodeDeployGetDeployment(deploymentId)
+    }
+  }
+  return [];
+}
+
 export {
   CodeDeployListApplications,
   CodeDeployListDeployments,
-  CodeDeployListDeployment
+  CodeDeployListDeployment,
+  CodeDeployGetDeploymentReady
 }
