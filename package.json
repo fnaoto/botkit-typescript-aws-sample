@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "npx tsc --outDir ./dist ./src/index.ts && node dist/index.js",
     "build": "npx tsc --outDir ./dist ./src/index.ts"
   },
   "dependencies": {
