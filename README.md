@@ -11,8 +11,8 @@ $ yarn start
 $ curl -X POST \
     -H "Content-Type: application/json" \
     -d '{
-          "type": "message",
-          "text": "test",
+          "type": "test",
+          "text": "ok bokujyou",
           "channel": "websocket",
           "user": "user"
         }' \
