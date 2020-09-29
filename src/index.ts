@@ -13,22 +13,22 @@ const controller = new Botkit({
   adapter: adapter,
 });
 
-controller.on("message", async (bot, message) => {
-  await bot.reply(message, "I received an message event.");
+controller.on("test", async (bot, msg) => {
+  await bot.reply(msg, "I received an event: " + msg.text);
 });
 
-controller.on("codebuild", async (bot, message) => {
-  await bot.reply(message, await CodeBuildListProjects());
+controller.on("codebuild", async (bot, msg) => {
+  await bot.reply(msg, await CodeBuildListProjects());
 });
 
-controller.on("codedeploy-list-deploy", async (bot, message) => {
-  await bot.reply(message, await CodeDeployListDeployment());
+controller.on("codedeploy-list-deploy", async (bot, msg) => {
+  await bot.reply(msg, await CodeDeployListDeployment());
 });
 
-controller.on("codedeploy-get-deploy-ready", async (bot, message) => {
-  await bot.reply(message, await CodeDeployGetDeploymentReady());
+controller.on("codedeploy-get-deploy-ready", async (bot, msg) => {
+  await bot.reply(msg, await CodeDeployGetDeploymentReady());
 });
 
-controller.on("codedeploy-list-app", async (bot, message) => {
-  await bot.reply(message, await CodeDeployListApplications());
+controller.on("codedeploy-list-app", async (bot, msg) => {
+  await bot.reply(msg, await CodeDeployListApplications());
 });
