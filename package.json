@@ -1,9 +1,10 @@
 {
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "npx tsc --outDir ./dist ./src/index.ts && node dist/index.js",
     "build": "npx tsc --outDir ./dist ./src/index.ts"
   },
   "dependencies": {
+    "@octokit/rest": "^18.0.6",
     "aws-sdk": "^2.732.0",
     "botbuilder-adapter-web": "^1.0.8",
     "botkit": "^4.9.0",

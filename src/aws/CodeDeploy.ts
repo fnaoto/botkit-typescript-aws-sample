@@ -18,7 +18,7 @@ const CodeDeployListDeploymentsReady = async () => {
   }).promise();
 };
 
-const CodeDeployGetDeployment = async (deploymentId) => {
+const CodeDeployGetDeployment = async (deploymentId: string) => {
   return await codedeploy().getDeployment({
     deploymentId: deploymentId
   }).promise();
