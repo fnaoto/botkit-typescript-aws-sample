@@ -6,6 +6,9 @@ import {
   CodeDeployListDeployment,
   CodeDeployGetDeploymentReady
 } from "./aws/CodeDeploy";
+import {
+  GitHubListTags
+} from "./github/Tags"
 
 const adapter = new WebAdapter;
 
@@ -31,4 +34,8 @@ controller.on("codedeploy-get-deploy-ready", async (bot, msg) => {
 
 controller.on("codedeploy-list-app", async (bot, msg) => {
   await bot.reply(msg, await CodeDeployListApplications());
+});
+
+controller.on("github-list-tags", async (bot, msg) => {
+  await bot.reply(msg, await GitHubListTags("fnaoto", "botkit-typescript-aws-sample", 1));
 });
