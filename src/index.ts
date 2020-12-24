@@ -9,6 +9,7 @@ import {
 import {
   GitHubListTags
 } from "./github/Tags"
+import { Credentials } from "./aws/Credentials";
 
 const adapter = new WebAdapter;
 
@@ -20,8 +21,9 @@ controller.on("test", async (bot, msg) => {
   await bot.reply(msg, "I received an event: " + msg.text);
 });
 
-controller.on("codebuild", async (bot, msg) => {
-  await bot.reply(msg, await CodeBuildListProjects());
+controller.hears(new RegExp(/^codebuild (.*?)$/i), 'message', async (bot, message) => {
+  Credentials(message.matches[1]);
+  await bot.reply(message, await CodeBuildListProjects());
 });
 
 controller.on("codedeploy-list-deploy", async (bot, msg) => {
