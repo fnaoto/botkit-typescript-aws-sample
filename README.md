@@ -35,8 +35,8 @@ $ export AWS_PROFILE=<>
 $ curl -X POST \
     -H "Content-Type: application/json" \
     -d '{
-          "type": "codebuild",
-          "text": "test",     
+          "type": "message",
+          "text": "codebuild <AWS_ROFILE>",
           "channel": "websocket",
           "user": "user"
         }' \
